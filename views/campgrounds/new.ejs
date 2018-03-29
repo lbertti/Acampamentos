@@ -1,0 +1,31 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center">Criar um novo acampamento</h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/campgrounds" method="POST">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="name" placeholder="Nome do acampamento">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="number" name="price" placeholder="Preço por noite" min="0.01" step="0.1">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="image" placeholder="URL da Imagem do acampamento">
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control" aria-label="With textarea" name="description" placeholder="Descrição sobre o acampamento"></textarea>
+                </div>
+                <div class="form-group">
+                    <button  class="btn btn-lg btn-primary btn-block" class="btn- btn-lg btn-default">Salvar</button>
+                </div>
+            </form>
+            <a href="/campgrounds">Voltar</a>
+        </div>
+    </div>
+</div>
+
+
+
+<% include ../partials/footer %>
