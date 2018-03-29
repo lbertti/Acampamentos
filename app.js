@@ -31,9 +31,12 @@ var campgroundRoutes = require("./routes/campgrounds"),
 
 var methodOverride = require("method-override");
 
+//FORMAS DE CONECTAR COM O BD:  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 //mongoose.connect("mongodb://localhost/yelp_camp"); //conecta ao BD (caso o BD não exista, ele cria um instância no MongoDB)
 //mongoose.connect("mongodb://admin:campusParty@ds127899.mlab.com:27899/yelp_camp");
-mongoose.connect(process.env.DATABASEURL);
+//mongoose.connect(process.env.DATABASEURL); //usando a variável de ambiente ou, para se certificar que, caso não haja variável de ambiente, ele use a conexão local, escreve-se assim:
+var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp"; //CASO NÃO ENCONTRE A VARIÁVEL DE AMBIENTE, ELE USA A STRING HARD-CODED.
+mongoose.connect(url);
 
 /* 
 Para criar uma variável de ambiente (environment variable) execute o comando:
