@@ -26,7 +26,8 @@ var campgroundRoutes = require("./routes/campgrounds"),
 
 var methodOverride = require("method-override");
 
-mongoose.connect("mongodb://localhost/yelp_camp"); //conecta ao BD (caso o BD não exista, ele cria um instância no MongoDB)
+//mongoose.connect("mongodb://localhost/yelp_camp"); //conecta ao BD (caso o BD não exista, ele cria um instância no MongoDB)
+mongoose.connect("mongodb://admin:campusParty@ds127899.mlab.com:27899/yelp_camp");
 
 //var request = require("request");
 app.use(bodyParser.urlencoded({extended: true}));
