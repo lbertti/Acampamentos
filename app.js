@@ -4,6 +4,11 @@
 //MONGODB - Reparar o BD de um shutdown inesperado
 //$ mongod --repair
 
+/*pra subir pra produção, não esquecer de adicionar o comando de inicialização do serviço no package.json:
+tag "scripts": {
+    criar a propriedade start com o comando de inicialização do APP:
+    "start": "node app.js"  //  <-- ESSA LINHA AQUI
+*/
 
 //CAMPYELP EXERCISE
 var            express    = require("express"),
@@ -27,7 +32,17 @@ var campgroundRoutes = require("./routes/campgrounds"),
 var methodOverride = require("method-override");
 
 //mongoose.connect("mongodb://localhost/yelp_camp"); //conecta ao BD (caso o BD não exista, ele cria um instância no MongoDB)
-mongoose.connect("mongodb://admin:campusParty@ds127899.mlab.com:27899/yelp_camp");
+//mongoose.connect("mongodb://admin:campusParty@ds127899.mlab.com:27899/yelp_camp");
+mongoose.connect(process.env.DATABASEURL);
+
+/* 
+Para criar uma variável de ambiente (environment variable) execute o comando:
+$ export DATABASEURL=mongodb://localhost/yelp_camp  // Em desenvolvimento
+$ export DATABASEURL=mongodb://admin:campusParty@ds127899.mlab.com:27899/yelp_camp  // Em produção
+
+Para usar essa variável no código, uso:
+process.env.DATABASEURL
+*/
 
 //var request = require("request");
 app.use(bodyParser.urlencoded({extended: true}));
