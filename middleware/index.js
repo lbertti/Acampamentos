@@ -60,7 +60,7 @@ middlewareObj.isLoggedIn = function (req,res,next){ //MIDDLEWARE - verifica se o
         return next();
     }
     req.flash("error", "Você deve estar logado para executar essa ação!"); //FLASH MESSAGE
-    res.redirect("../login");
+    res.redirect("/login");
 }
 
 
